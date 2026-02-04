@@ -15,3 +15,15 @@
 - **Đã làm:** Thiết lập nhật ký dự án (Scrum Diary).
 - **Sẽ làm:** Vẽ sơ đồ trạng thái đơn hàng (Order States) và cập nhật chi tiết (Refine) cho Backlog.
 - **Vấn đề:** Cần làm rõ logic xử lý tiền khi có tranh chấp (Dispute) để đảm bảo tính công bằng.
+
+---
+
+### Ngày: 04/02/2026 (Thứ Tư)
+- **Đã làm:**
+    - Hoàn thiện sơ đồ nghiệp vụ "Transaction Lifecycle" (xử lý logic, tranh chấp, phạt).
+    - Cập nhật chi tiết Acceptance Criteria cho các thẻ Backlog quan trọng (Escrow, Dispute).
+- **Sẽ làm:**
+    - Thiết kế cơ sở dữ liệu (ERD) cho các thực thể User, Wallet, Order.
+    - Chốt kiến trúc dự án (Clean Architecture + CQRS).
+- **Vấn đề:**
+    - Logic tính nợ (Debt) khá phức tạp, cần thiết kế bảng Wallet khéo léo để tránh sai lệch tiền.
