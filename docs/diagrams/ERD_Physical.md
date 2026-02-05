@@ -7,6 +7,7 @@ erDiagram
         VARCHAR Email
         VARCHAR PasswordHash
         DECIMAL DebtAmount
+        INT DisputeLostCount
         VARCHAR Role
         VARCHAR Status
         DATETIME CreatedAt
@@ -75,6 +76,16 @@ erDiagram
         VARCHAR Link
         BIT IsRead
         DATETIME CreatedAt
+    }
+
+    BLOCKED_PAYOUT {
+        int BlockId PK
+        string BankAccount
+        string BankName
+        int OriginalUserId FK
+        decimal DebtAmount
+        boolean IsResolved
+        datetime CreatedAt
     }
 
     %% --- RELATIONSHIPS ---
