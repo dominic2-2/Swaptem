@@ -43,7 +43,8 @@ erDiagram
         int TransactionId PK
         int OrderId FK
         int UserId FK
-        string Type "DEPOSIT, PAYOUT, REFUND"
+        int RelatedTransactionId FK 
+        string Type "DEPOSIT, PAYOUT, REFUND, DEBT_DEDUCTION"
         decimal Amount
         string PayoutInfo
         string AdminEvidence
@@ -84,6 +85,7 @@ erDiagram
         int OriginalUserId FK
         decimal DebtAmount
         boolean IsResolved
+        int ResolvedTransactionId FK
         datetime CreatedAt
     }
 
@@ -105,6 +107,7 @@ erDiagram
 
     USER ||--o{ NOTIFICATION : receives
 
-    %% Quan hệ mới cho logic truy vết nợ
     USER ||--o{ BLOCKED_PAYOUT : caused_block
+    TRANSACTION ||--o| BLOCKED_PAYOUT : resolves_block
+    TRANSACTION ||--o{ TRANSACTION : "related_to"
 ```
