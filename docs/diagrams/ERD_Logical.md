@@ -1,12 +1,13 @@
 ```mermaid
 erDiagram
-    %% --- ENTITIES ---
     USER {
         int UserId PK
         string Username
         string Email
         string PasswordHash
         decimal DebtAmount
+        int DisputeLostCount
+        string Role "ADMIN, MEMBER"
         string Status "ACTIVE, BANNED, DEACTIVATED"
         datetime CreatedAt
     }
@@ -18,7 +19,8 @@ erDiagram
         string Description
         decimal BasePrice
         string PublicEvidenceUrl
-        string SecretData "FILE, LINK, SECRET"
+        string ProductType "FILE, ACCOUNT"
+        string SecretData
         string Status "AVAILABLE, SOLD, HIDDEN"
         datetime CreatedAt
     }
@@ -45,13 +47,14 @@ erDiagram
         decimal Amount
         string PayoutInfo
         string AdminEvidence
-        string Status "CREATED, PENDING, SUCCESS, FAILED"
+        string Status "PENDING, SUCCESS, FAILED"
         datetime CreatedAt
     }
 
     CONVERSATION {
         int ConversationId PK
         int OrderId FK
+        int CreatorId FK
         string Type "NEGOTIATION, ORDERCHAT, SELFRESOLVE, DISPUTE"
         datetime CreatedAt
     }
@@ -74,6 +77,16 @@ erDiagram
         datetime CreatedAt
     }
 
+    BLOCKED_PAYOUT {
+        int BlockId PK
+        string BankAccount
+        string BankName
+        int OriginalUserId FK
+        decimal DebtAmount
+        boolean IsResolved
+        datetime CreatedAt
+    }
+
     %% --- RELATIONSHIPS ---
     USER ||--o{ PRODUCT : owns
     USER ||--o{ ORDER : places_buyer
@@ -84,9 +97,14 @@ erDiagram
     ORDER ||--o{ TRANSACTION : has_history
     USER ||--o{ TRANSACTION : performs
 
-    ORDER ||--o{ CONVERSATION : context
+    ORDER ||--|{ CONVERSATION : context
+    USER ||--o{ CONVERSATION : starts
+
     CONVERSATION ||--|{ MESSAGE : contains
     USER ||--o{ MESSAGE : sends
 
     USER ||--o{ NOTIFICATION : receives
+
+    %% Quan hệ mới cho logic truy vết nợ
+    USER ||--o{ BLOCKED_PAYOUT : caused_block
 ```
