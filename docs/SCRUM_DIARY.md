@@ -27,3 +27,17 @@
     - Chốt kiến trúc dự án (Clean Architecture + CQRS).
 - **Vấn đề:**
     - Logic tính nợ (Debt) khá phức tạp, cần thiết kế bảng Wallet khéo léo để tránh sai lệch tiền.
+
+---
+
+### Ngày: 05/02/2026 (Thứ Năm)
+- **Đã làm:**
+    - **Chốt thiết kế Database (Logical & Physical ERD):** Hoàn thiện sơ đồ quan hệ thực thể, xác định kiểu dữ liệu (GUID, Decimal, Nvarchar...).
+    - **Thay đổi kiến trúc dòng tiền:** Quyết định chuyển từ mô hình "Ví ảo" sang "Thanh toán bán tự động" (Semi-Auto Payout) để giảm rủi ro pháp lý và kỹ thuật.
+    - **Nâng cấp nghiệp vụ:** Thiết kế logic "3-Strikes Ban" (Tự động khóa), "Blacklist Ngân hàng" (Chặn dòng tiền rác) và "Redemption" (Cơ chế chuộc nợ để gỡ Block).
+    - **Cập nhật Product Backlog:** Sửa đổi các thẻ User Story liên quan đến Payout, Admin Dashboard và Dispute để khớp với logic mới.
+- **Sẽ làm:**
+    - Khởi tạo Solution trong Visual Studio theo cấu trúc Clean Architecture (Domain, Application, Infrastructure, API).
+    - Implement các Entity vào Code (C#).
+- **Vấn đề:**
+    - Logic truy vết nợ và kiểm toán (Accounting) rất phức tạp, đã giải quyết bằng cách tách bảng `TRANSACTION` (Payout & Debt_Deduction) và thêm bảng `BLOCKED_PAYOUT`.
