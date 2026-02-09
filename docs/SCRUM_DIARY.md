@@ -66,11 +66,13 @@
 
 ### Ngày: 09/02/2026 (Thứ Hai)
 - **Đã làm:**
-    - Khởi tạo Solution theo cấu trúc Clean Architecture (Domain, Application, Infrastructure, API).
-    - Cài đặt các thư viện nền tảng (Entity Framework Core, MediatR, FluentValidation).
-    - Chuyển đổi thiết kế ERD (User, Product, Order...) thành các Class Entity trong tầng Domain.
+    - Khởi tạo thành công Solution với Clean Architecture (Domain, Application, Infrastructure, API).
+    - Cài đặt đầy đủ các gói NuGet (EF Core, MediatR...) phiên bản .NET 10.
+    - **Hoàn thành 100% tầng Domain:** Code xong các Entity quan trọng (User, Product, Order) và các logic phức tạp (Transaction, BlockedPayout).
+    - Bổ sung các Entity còn thiếu (Conversation, Message, Notification) để đảm bảo Project build không lỗi.
 - **Sẽ làm:**
-    - Cấu hình DbContext và chuỗi kết nối (Connection String).
-    - Chạy Migration đầu tiên để sinh ra Database SQL.
+    - Cấu hình `ApplicationDbContext` trong tầng Infrastructure.
+    - Thiết lập chuỗi kết nối (Connection String) tới SQL Server.
+    - Chạy lệnh `Add-Migration` và `Update-Database` để sinh ra Database thực tế.
 - **Vấn đề:**
-    - Cần cẩn thận khi map các kiểu dữ liệu (Enum, Value Object) từ thiết kế vào Code để đảm bảo đúng logic nghiệp vụ.
+    - Gặp chút trục trặc khi cài NuGet bằng dòng lệnh (CLI) do mạng timeout, đã khắc phục bằng cách dùng giao diện Visual Studio (Manage NuGet Packages).
