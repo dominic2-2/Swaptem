@@ -41,3 +41,20 @@
     - Implement các Entity vào Code (C#).
 - **Vấn đề:**
     - Logic truy vết nợ và kiểm toán (Accounting) rất phức tạp, đã giải quyết bằng cách tách bảng `TRANSACTION` (Payout & Debt_Deduction) và thêm bảng `BLOCKED_PAYOUT`.
+
+---
+
+### Ngày: 06/02/2026 (Thứ Sáu) đến 08/02/2026 (Chủ Nhật)
+- **Đã làm:**
+    - Không có (Dự án tạm dừng do Dev chính bận lịch phỏng vấn và việc cá nhân).
+- **Sẽ làm:**
+    - Quay lại làm việc vào Thứ Hai tuần sau (09/02).
+    - Dồn task "Dựng khung dự án" sang Sprint 1.
+- **Vấn đề:**
+    - Thời gian eo hẹp, không hoàn thành mục tiêu Sprint 0 đúng hạn (Missed Sprint Goal).
+
+---
+**TỔNG KẾT SPRINT 0:**
+- **Trạng thái:** KẾT THÚC (Failed Goal).
+- **Lý do:** Chưa dựng được khung dự án (Scaffolding).
+- **Hành động:** Chuyển toàn bộ phần Coding sang Sprint 1.
