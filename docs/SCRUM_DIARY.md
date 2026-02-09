@@ -4,7 +4,8 @@
 **Mục tiêu Sprint:** Làm rõ nghiệp vụ, thiết kế hệ thống và dựng khung dự án (Scaffolding).
 
 ### Ngày: 02/02/2026 (Thứ Hai)
-- **Đã làm:** - Khởi tạo Repo Swaptem, thiết lập .gitignore (Visual Studio) và License MIT.
+- **Đã làm:** 
+    - Khởi tạo Repo Swaptem, thiết lập .gitignore (Visual Studio) và License MIT.
     - Xây dựng Product Backlog gồm 8 User Stories tập trung vào bài toán Escrow và Dispute.
 - **Sẽ làm:** Phân tích luồng tiền (Money Flow) và định nghĩa các trạng thái đơn hàng.
 - **Vấn đề:** Xác định phạm vi MVP (Minimum Viable Product) sao cho vừa đủ sức nặng để đi phỏng vấn, vừa kịp tiến độ hoàn thành trong 1 tháng.
@@ -54,7 +55,22 @@
     - Thời gian eo hẹp, không hoàn thành mục tiêu Sprint 0 đúng hạn (Missed Sprint Goal).
 
 ---
+
 **TỔNG KẾT SPRINT 0:**
 - **Trạng thái:** KẾT THÚC (Failed Goal).
 - **Lý do:** Chưa dựng được khung dự án (Scaffolding).
 - **Hành động:** Chuyển toàn bộ phần Coding sang Sprint 1.
+
+## Sprint 1 (Từ 09/02/2026 đến 15/02/2026)
+**Mục tiêu Sprint:** Dựng khung dự án (Architecture), hoàn thiện Database và chức năng Authentication (Đăng ký/Đăng nhập).
+
+### Ngày: 09/02/2026 (Thứ Hai)
+- **Đã làm:**
+    - Khởi tạo Solution theo cấu trúc Clean Architecture (Domain, Application, Infrastructure, API).
+    - Cài đặt các thư viện nền tảng (Entity Framework Core, MediatR, FluentValidation).
+    - Chuyển đổi thiết kế ERD (User, Product, Order...) thành các Class Entity trong tầng Domain.
+- **Sẽ làm:**
+    - Cấu hình DbContext và chuỗi kết nối (Connection String).
+    - Chạy Migration đầu tiên để sinh ra Database SQL.
+- **Vấn đề:**
+    - Cần cẩn thận khi map các kiểu dữ liệu (Enum, Value Object) từ thiết kế vào Code để đảm bảo đúng logic nghiệp vụ.
