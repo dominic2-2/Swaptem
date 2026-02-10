@@ -76,3 +76,16 @@
     - Chạy lệnh `Add-Migration` và `Update-Database` để sinh ra Database thực tế.
 - **Vấn đề:**
     - Gặp chút trục trặc khi cài NuGet bằng dòng lệnh (CLI) do mạng timeout, đã khắc phục bằng cách dùng giao diện Visual Studio (Manage NuGet Packages).
+
+### Ngày: 10/02/2026 (Thứ Ba)
+- **Đã làm:**
+    - Hoàn thiện file `SwaptemDbContext.cs` với đầy đủ các mối quan hệ phức tạp (Self-referencing Transaction, BlockedPayout, Conversation...).
+    - Cấu hình bảo mật Connection String bằng **User Secrets** (tách biệt SQL Server cho Dev và PostgreSQL cho Deploy).
+    - Cài đặt gói `Npgsql.EntityFrameworkCore.PostgreSQL` để hỗ trợ đa nền tảng.
+    - Thực hiện Migration thủ công thành công cho cả 2 môi trường (SQL Server và PostgreSQL) để có Database chạy thử.
+- **Sẽ làm:**
+    - Refactor lại kiến trúc Database: Tách thành 2 DbContext con (`SqlDbContext` và `PostgresDbContext`) để giải quyết triệt để xung đột Migration Snapshot.
+    - Bắt đầu code tầng Repository (Truy xuất dữ liệu).
+- **Vấn đề:**
+    - Gặp xung đột `ModelSnapshot` khi dùng chung 1 DbContext cho 2 loại Database.
+    - Giải pháp tạm thời: Phải xóa Migration của DB này mới tạo được cho DB kia -> Tốn công sức và dễ sai sót. Cần fix triệt để vào ngày mai.
