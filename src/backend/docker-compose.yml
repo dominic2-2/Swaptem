@@ -1,0 +1,55 @@
+
+services:
+
+  swaptem-db:
+
+    image: postgres:latest
+
+    container_name: swaptem_postgres
+
+    environment:
+
+      - POSTGRES_DB=SwaptemDb
+
+      - POSTGRES_USER=admin
+
+      - POSTGRES_PASSWORD=password123
+
+    ports:
+
+      - "5432:5432"
+
+    volumes:
+
+      - postgres_data:/var/lib/postgresql
+
+    networks:
+
+      - swaptem-network
+
+    healthcheck:
+
+      test: ["CMD-SHELL", "pg_isready -U admin -d SwaptemDb"]
+
+      interval: 10s 
+
+      timeout: 5s 
+
+      retries: 5 
+
+      start_period: 10s
+
+
+
+networks:
+
+  swaptem-network:
+
+    driver: bridge
+
+
+
+volumes:
+
+  postgres_data:
+

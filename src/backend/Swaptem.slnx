@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Swaptem.API/Swaptem.API.csproj" />
+  <Project Path="Swaptem.Application/Swaptem.Application.csproj" />
+  <Project Path="Swaptem.Domain/Swaptem.Domain.csproj" />
+  <Project Path="Swaptem.Infrastructure/Swaptem.Infrastructure.csproj" />
+</Solution>

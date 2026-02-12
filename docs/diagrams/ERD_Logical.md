@@ -1,7 +1,7 @@
 ```mermaid
 erDiagram
     USER {
-        int UserId PK
+        uuid UserId PK
         string Username
         string Email
         string PasswordHash
@@ -13,8 +13,8 @@ erDiagram
     }
 
     PRODUCT {
-        int ProductId PK
-        int SellerId FK
+        uuid ProductId PK
+        uuid SellerId FK
         string Title
         string Description
         decimal BasePrice
@@ -26,11 +26,11 @@ erDiagram
     }
 
     ORDER {
-        int OrderId PK
+        uuid OrderId PK
         string OrderCode
-        int BuyerId FK
-        int SellerId FK
-        int ProductId FK
+        uuid BuyerId FK
+        uuid SellerId FK
+        uuid ProductId FK
         decimal FinalPrice
         decimal PlatformFee
         string Status "CREATED, PAID, DISPUTED, COMPLETED, REFUNDED, CANCELLED"
@@ -40,10 +40,10 @@ erDiagram
     }
 
     TRANSACTION {
-        int TransactionId PK
-        int OrderId FK
-        int UserId FK
-        int RelatedTransactionId FK 
+        uuid TransactionId PK
+        uuid OrderId FK
+        uuid UserId FK
+        uuid RelatedTransactionId FK 
         string Type "DEPOSIT, PAYOUT, REFUND, DEBT_DEDUCTION"
         decimal Amount
         string PayoutInfo
@@ -53,25 +53,25 @@ erDiagram
     }
 
     CONVERSATION {
-        int ConversationId PK
-        int OrderId FK
-        int CreatorId FK
+        uuid ConversationId PK
+        uuid OrderId FK
+        uuid CreatorId FK
         string Type "NEGOTIATION, ORDERCHAT, SELFRESOLVE, DISPUTE"
         datetime CreatedAt
     }
 
     MESSAGE {
-        int MessageId PK
-        int ConversationId FK
-        int SenderId FK
+        uuid MessageId PK
+        uuid ConversationId FK
+        uuid SenderId FK
         string Content
         boolean IsSystemMessage
-        datetime SentAt
+        datetime CreatedAt
     }
 
     NOTIFICATION {
-        int NotificationId PK
-        int UserId FK
+        uuid NotificationId PK
+        uuid UserId FK
         string Content
         string Link
         boolean IsRead
@@ -79,13 +79,13 @@ erDiagram
     }
 
     BLOCKED_PAYOUT {
-        int BlockId PK
+        uuid BlockId PK
         string BankAccount
         string BankName
-        int OriginalUserId FK
+        uuid OriginalUserId FK
         decimal DebtAmount
         boolean IsResolved
-        int ResolvedTransactionId FK
+        uuid ResolvedTransactionId FK
         datetime CreatedAt
     }
 
