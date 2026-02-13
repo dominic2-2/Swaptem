@@ -14,7 +14,7 @@ Giải quyết rào cản lòng tin trong giao dịch tài sản số nhỏ lẻ
 - **Công bằng:** Cơ chế xử lý tranh chấp (Dispute) minh bạch.
 
 ## 🛠 Công nghệ dự kiến (Tech Stack)
-- **Backend:** .NET 8 (C#) - Modular Monolith.
-- **Frontend:** Single Page Application (SPA).
-- **Database:** Relational Database (SQL Server/PostgreSQL).
+- **Backend:** .NET 10 (C#) - Modular Monolith.
+- **Frontend:** Single Page Application (Angular).
+- **Database:** Relational Database (PostgreSQL).
 - **Communication:** RESTful API & gRPC cho giao tiếp nội bộ.
