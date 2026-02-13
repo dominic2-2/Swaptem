@@ -77,6 +77,8 @@
 - **Vấn đề:**
     - Gặp chút trục trặc khi cài NuGet bằng dòng lệnh (CLI) do mạng timeout, đã khắc phục bằng cách dùng giao diện Visual Studio (Manage NuGet Packages).
 
+---
+
 ### Ngày: 10/02/2026 (Thứ Ba)
 - **Đã làm:**
     - Hoàn thiện file `SwaptemDbContext.cs` với đầy đủ các mối quan hệ phức tạp (Self-referencing Transaction, BlockedPayout, Conversation...).
@@ -89,3 +91,40 @@
 - **Vấn đề:**
     - Gặp xung đột `ModelSnapshot` khi dùng chung 1 DbContext cho 2 loại Database.
     - Giải pháp tạm thời: Phải xóa Migration của DB này mới tạo được cho DB kia -> Tốn công sức và dễ sai sót. Cần fix triệt để vào ngày mai.
+
+---
+
+### Ngày: 11/02/2026 (Thứ Tư)
+- **Đã làm:**
+    - (Nghỉ) Giải quyết việc cá nhân và dọn dẹp nhà cửa đón Tết.
+- **Sẽ làm:**
+    - Quay lại xử lý vấn đề cấu hình Database và Migration.
+- **Vấn đề:**
+    - Tiến độ bị gián đoạn tạm thời do kế hoạch gia đình.
+
+---
+
+### Ngày: 12/02/2026 (Thứ Năm)
+- **Đã làm:**
+    - Tiếp tục khắc phục lỗi Migration snapshot giữa SQL Server và PostgreSQL.
+    - Đánh giá lại kiến trúc: Nhận thấy việc duy trì đồng thời 2 hệ quản trị CSDL là dư thừa và gây phức tạp hóa hệ thống (Over-engineering).
+    - **Quyết định chốt hạ:** Loại bỏ SQL Server, chỉ sử dụng duy nhất **PostgreSQL** (chạy trên Docker) cho cả môi trường Development và Production để đảm bảo tính đồng nhất.
+- **Sẽ làm:**
+    - Tái cấu trúc toàn bộ Solution sang mô hình Monorepo để quản lý tập trung cả Frontend và Backend.
+- **Vấn đề:**
+    - Tốn nhiều thời gian và công sức cho việc cấu hình sai hướng (hỗ trợ Multi-DB không cần thiết).
+
+---
+
+### Ngày: 13/02/2026 (Thứ Sáu) - "The Fix Day"
+- **Đã làm:**
+    - **Refactor Architecture:** Chuyển đổi thành công dự án sang cấu trúc **Nx Monorepo** (tích hợp .NET 10 API và Angular).
+    - **Infrastructure:** Chuẩn hóa hạ tầng bằng Docker Compose để dựng PostgreSQL; kết nối và thực hiện Migration thành công từ Backend.
+    - **Integration:** Cấu hình chính xác chính sách CORS; ứng dụng Frontend (Angular) đã thực hiện gọi API thành công tới Backend.
+    - **Documentation:** Hoàn thiện bộ tài liệu kỹ thuật quan trọng bao gồm: Architecture Doc, Database Design và báo cáo Retrospective.
+- **Sẽ làm:**
+    - Triển khai code tính năng Xác thực người dùng (Auth: Register/Login).
+- **Vấn đề:**
+    - Phát hiện thiếu hụt quy trình Sprint 0 (thiếu tài liệu thiết kế và khung Frontend) dẫn đến việc phải dành trọn một ngày để bổ sung nền tảng.
+
+---
