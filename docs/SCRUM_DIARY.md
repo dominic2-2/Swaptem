@@ -116,7 +116,7 @@
 
 ---
 
-### Ngày: 13/02/2026 (Thứ Sáu) - "The Fix Day"
+### Ngày: 13/02/2026 (Thứ Sáu)
 - **Đã làm:**
     - **Refactor Architecture:** Chuyển đổi thành công dự án sang cấu trúc **Nx Monorepo** (tích hợp .NET 10 API và Angular).
     - **Infrastructure:** Chuẩn hóa hạ tầng bằng Docker Compose để dựng PostgreSQL; kết nối và thực hiện Migration thành công từ Backend.
